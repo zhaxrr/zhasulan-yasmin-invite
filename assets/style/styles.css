@@ -37,18 +37,28 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    color: var(--text);
-    background: var(--bg-color);
-    line-height: 1.6;
+    max-width: 480px; /* Ширина стандартного смартфона */
+    margin: 0 auto;
     overflow-x: hidden;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg-color); /* Фон за пределами сайта (серый или бежевый) */
+}
+
+html {
+    background-color: #f0f0f0; /* Чтобы при скролле не было белых дыр */
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--bg-color);
+    max-width: 500px; /* Типичная ширина для мобильного приглашения */
+    margin: 0 auto;   /* Центрируем сайт на больших экранах */
+    width: 100%;      /* На маленьких экранах занимает всю ширину */
+    min-height: 100vh;
+    background-color: #fff; /* Чтобы фон контента отличался от фона окна */
+    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Легкая тень по бокам для красоты */
+    position: relative;
+    overflow-x: hidden; /* Критично: обрезает всё, что вылетает за края */
 }
-
 h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
