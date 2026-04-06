@@ -19,6 +19,10 @@
 		url('../fonts/kz_balmoral_regular.svg#kz_balmoral_regular') format('svg'); /* Chrome < 4, Legacy iOS */
 }
 
+@font-face {
+    font-family: "Asylbekm13vivante.Kz";
+    src: url('../fonts/AsylbekM13Vivante.kz.ttf') format('truetype');
+}
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -93,6 +97,7 @@ h1, h2, h3 {
     line-height: 1.1;
     color: #d1b085;
 	text-shadow: rgba(255,198,84,0.68) 0px 0px 38px;
+	font-family: 'Asylbekm13vivante.Kz';
 }
 
 .name-top {
