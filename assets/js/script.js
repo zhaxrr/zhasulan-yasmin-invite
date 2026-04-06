@@ -80,19 +80,19 @@ const translations = {
         kidTitle: "Өте маңызды",
         kidText: "Құрметті қонақтар! Мейрамхананың талаптарына сәйкес кеш бағдарламасы ересектерге арналған. Осыған орай тойға баласыз келулеріңізді сұраймыз. Түсіністік танытқандарыңыз үшін алғыс білдіреміз!",
         
-        august: "Тамыз 2026",
+        august: "Тамыз",
         
         joinGroup: "Топқа қосылу",
         
         groupTitle: "Тойдың видео және фотосуреттер тобы",
-        groupInfo: "Осы топқа қосылып, тойдан естелік фото мен видеоларыңызды осы жерде бөлісулеріңізді сұраймыз!",
+        groupInfo: "Тойдың естелік сәттерімен осы TELEGRAM топта бөлісулеріңізді сұраймыз. Көрсеткен қолдауларыңызға алдын ала рақмет!",
         
-        geoTitle: "Өтетін жер",
+        geoTitle: " Мекенжайы",
         geoInfo: "Ақтөбе қ., Бөкенбай батыр көшесі, 40г, \"Elegant Hall\" банкет залы",
         geoBtn: "2ГИС-тен қарау",
         
         groupcheerTitle: "Видео құттықтауларға арналған топ",
-        groupcheerInfo: "Осы топқа қосылып, өз видео тілектеріңізді бөлісіңіздер! Сіздердің жылы лебіздеріңізді көруге қуаныштымыз.",
+        groupcheerInfo: "Осы TELEGRAM топта өз видео-тілектеріңізді бөлісулеріңізді сұраймыз. Сіздердің ақ ниетті лебіздеріңізді көру біз үшін үлкен қуаныш!",
         
         hostsSubtitle: "Той иелері",
         
@@ -167,7 +167,7 @@ function updateGuestInputs() {
         const input = document.createElement('input');
         input.type = 'text';
         input.className = 'guest-name';
-        input.placeholder = `${translations[currentLang].guestNamePlaceholder} ${i}`;
+        input.placeholder = `${translations[currentLang].guestNamePlaceholder}`;
         input.required = true;
         guestNamesContainer.appendChild(input);
     }
@@ -256,6 +256,35 @@ ${names}
         }
     })
     .finally(() => btn.disabled = false);
+
+
+
+    const guestCountSelect = document.getElementById('guest-count');
+const namesContainer = document.getElementById('guest-names-container');
+
+function updateGuestInputs() {
+    const count = parseInt(guestCountSelect.value);
+    namesContainer.innerHTML = ''; // Очищаем
+
+    for (let i = 1; i <= count; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'guest-name-input'; // Добавьте стиль в CSS аналогично select
+        input.placeholder = count === 1 ? 'Ваше имя и фамилия' : `Имя гостя №${i}`;
+        input.required = true;
+        input.style.marginBottom = '15px';
+        input.style.width = '100%';
+        input.style.padding = '12px 15px';
+        input.style.border = '1px solid #d4af37';
+        input.style.borderRadius = '8px';
+        
+        namesContainer.appendChild(input);
+    }
+}
+
+// Запускаем при изменении и при загрузке
+guestCountSelect.addEventListener('change', updateGuestInputs);
+updateGuestInputs();
 });
 
 // Валидация телефона (только цифры, максимум 11 символов для РФ/КЗ)
@@ -293,4 +322,3 @@ window.addEventListener("scroll", function() {
         langBtn.style.opacity = "1";
     }
 });
-
