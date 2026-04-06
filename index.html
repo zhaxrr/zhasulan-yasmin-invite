@@ -34,7 +34,7 @@
 </head>
 <body>
 
-    <button class="lang-switch-btn" id="lang-toggle">KZ / RU</button>
+    <!-- <button class="lang-switch-btn" id="lang-toggle">KZ / RU</button> -->
 
     <div class="container">
         <section class="hero">
@@ -431,17 +431,18 @@
 
     <script>
         function applyLanguage() {
-        document.querySelectorAll('[data-key]').forEach(el => {
-            const key = el.getAttribute('data-key');
-            if (translations[currentLang][key]) {
-                el.innerText = translations[currentLang][key];
-            }
-        });
-    
-        updateGuestInputs();
-    }
-    
-    document.addEventListener('DOMContentLoaded', applyLanguage);
+    document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[currentLang][key]) {
+            el.innerText = translations[currentLang][key];
+        }
+    });
+
+    updateGuestInputs();
+}
+
+// при загрузке страницы
+document.addEventListener('DOMContentLoaded', applyLanguage);
     </script>
 </body>
 </html>
