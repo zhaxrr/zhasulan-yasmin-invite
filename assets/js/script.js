@@ -82,7 +82,7 @@ const translations = {
     }
 };
 
-let currentLang = 'ru';
+let currentLang = 'kz';
 
 // Функция смены языка
 function switchLanguage() {
