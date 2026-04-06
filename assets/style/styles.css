@@ -92,6 +92,7 @@ h1, h2, h3 {
     font-size: clamp(2.5rem, 10vw, 5rem);
     line-height: 1.1;
     color: #d1b085;
+	text-shadow: rgba(255,198,84,0.68) 0px 0px 38px;
 }
 
 .name-top {
