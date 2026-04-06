@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
     <title>Жасұлан & Ясмин — Тойға шақыру</title>
 
-<meta property="og:title" content="Жасұлан & Ясмин — Тойға шақыру">
-<meta property="og:description" content="Сіздерді ақ тілекпен қуанышымыздың куәсі болуға шақырамыз! Толығырақ білу үшін басыңыз.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zhaxrr.github.io/zhasulan-yasmin-invite/">
+    <meta property="og:title" content="Жасұлан & Ясмин — Тойға шақыру">
+    <meta property="og:description" content="Сіздерді ақ тілекпен қуанышымыздың куәсі болуға шақырамыз! Толығырақ білу үшін басыңыз.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zhaxrr.github.io/zhasulan-yasmin-invite/">
 
-<meta property="og:image" content="https://zhaxrr.github.io/zhasulan-yasmin-invite/assets/img/preview.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://zhaxrr.github.io/zhasulan-yasmin-invite/assets/img/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Жасұлан & Ясмин — Тойға шақыру">
-<meta name="twitter:description" content="Сіздерді салтанатты кешімізде көруге қуаныштымыз!">
-<meta name="twitter:image" content="https://zhaxrr.github.io/zhasulan-yasmin-invite/assets/img/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Жасұлан & Ясмин — Тойға шақыру">
+    <meta name="twitter:description" content="Сіздерді салтанатты кешімізде көруге қуаныштымыз!">
+    <meta name="twitter:image" content="https://zhaxrr.github.io/zhasulan-yasmin-invite/assets/img/preview.jpg">
 
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./assets/style/styles.css">
@@ -33,6 +30,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <button class="lang-switch-btn" id="lang-toggle">KZ / RU</button>
 
     <div class="container">
         <section class="hero">
@@ -426,7 +425,8 @@
             },
         });
     </script>
-<script>
+
+    <script>
         function applyLanguage() {
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
@@ -437,8 +437,9 @@
 
     updateGuestInputs();
 }
+
+// при загрузке страницы
 document.addEventListener('DOMContentLoaded', applyLanguage);
-    
-</script>
+    </script>
 </body>
 </html>
