@@ -428,5 +428,20 @@
             },
         });
     </script>
+
+    <script>
+        function applyLanguage() {
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[currentLang][key]) {
+                el.innerText = translations[currentLang][key];
+            }
+        });
+    
+        updateGuestInputs();
+    }
+    
+    document.addEventListener('DOMContentLoaded', applyLanguage);
+    </script>
 </body>
 </html>
