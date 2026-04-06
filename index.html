@@ -44,7 +44,7 @@
                 <h1 class="name-top"><strong>Жасұлан</strong></h1>
                 <span class="ampersand">&</span>
                 <h1 class="name-bottom"><strong>Ясмин</strong></h1>
-                <p class="hero-subtitle">Тойға шақыру</p>
+                <p class="hero-subtitle">Т о й ғ а    ‎ ‎‎ ‎ ‎  ш а қ ы р у</p>
             </div>
         </section>
         
@@ -80,7 +80,7 @@
         </section>
 
         <div class="reveal">
-            <img src="./assets/img/flowers.png" rotate="180deg" width="100%" alt="">
+            <img src="./assets/img/flowers2.png" rotate="180deg" width="100%" alt="">
         </div>
 
 
@@ -113,8 +113,8 @@
             <img src="./assets/img/flowers.png" width="100%" alt="">
         </div>
 
-        <div class="reveal">
-            <section class="timer-section timer-with-bg">
+        
+            <section class="timer-section timer-with-bg reveal">
                 <div class="timer-overlay"></div> <div class="timer-content"> <h2 class="timer-title" data-key="timerTitle">До свадьбы осталось</h2>
                     <div id="timer" class="timer-display">
                         <div class="timer-item"><span id="days">00</span><p data-key="days">Дней</p></div>
@@ -134,6 +134,12 @@
                         <img src="./assets/img/flowers2.png" width="320%" alt="">
                     </div>
                     <h2 class="patrons-title" data-key="toyIeleri">Той иелері</h2>
+                    
+                    <div class="lineage-unit">
+                        <span class="lineage-label">әжесі</span>
+                        <h3 class="hosts-primary">Салтанат</h3>
+                    </div>
+                    
                     <div class="divider"></div>
             
                     <div class="lineage-unit">
@@ -142,7 +148,6 @@
                     </div>
                 </div>
             </section>
-        </div>
 
 
 
@@ -157,13 +162,15 @@
                 <div class="divider"></div>
                 <p class="location-address" data-key="geoInfo">г. Актобе, Улица Бокенбай батыра, 40г <br> Банкетеный ресторан "Elegant Hall"</p>
                 
-                <a href="https://2gis.kz/aktobe/firm/70000001095169875/57.213255%2C50.254012?m=57.225646%2C50.257745%2F13.72" target="_blank" class="btn-2gis" data-key="geoBtn">
-                    Посмотреть в 2ГИС
+                <a href="https://2gis.kz/aktobe/firm/70000001095169875/57.213255%2C50.254012?m=57.225646%2C50.257745%2F13.72" target="_blank" class="btn-2giss">
+                    <img src="./assets/img/2gis.png" width="64px" alt="">
                 </a>
+                <p class="location-address">Мейрамханаға оңай жету
+                    үшін картаны қолданыңыз!</p>
             </div>
         </section>
 
-        <section class="story-block">
+        <section class="story-block reveal">
             <div class="story-image-placeholder"><img width="72px" src="./assets/img/children.png" alt=""></div>
             <div class="kid-text">
                 <h2 data-key="kidTitle">Очень важно</h2>
@@ -172,28 +179,45 @@
             </div>
         </section>
 
-        <section class="registration reveal">
-            <div class="form-container">
-                <h2 data-key="regTitle">Регистрация</h2>
+        <section class="registration-section reveal">
+            <div class="form-wrapper">
+                <img src="./assets/img/flowers.png" width="100%" alt="decor" class="form-decor">
                 
-                <form id="tg-form">
-                    <label class="input-label" data-key="labelPhone">Контактный телефон</label>
-                    <input type="tel" id="guest-phone" placeholder="+7 (707) 000-00-00" required 
-                        inputmode="numeric" maxlength="18">
+                <h2 class="form-title">Тойға келесіз бе?</h2>
+                
+                <form id="wedding-form">
+                    <p class="form-instruction">
+                        Жұбайыңызбен келетін болсаңыз, есімдеріңізді жазуыңызды өтінеміз
+                    </p>
         
-                    <label class="input-label" data-key="labelCount">Сколько вас будет?</label>
-                    <select id="guest-count">
-                        <option value="1" data-key="opt1">Я приду один/одна</option>
-                        <option value="2" data-key="opt2">Придем вдвоем</option>
-                    </select>
+                    <div class="input-group">
+                        <input type="text" id="guest-name" placeholder="ЕСІМІҢІЗ" required>
+                    </div>
         
-                    <div id="guest-names-container"></div>
-                    
-                    <button type="submit" class="btn-primary" id="submit-btn" data-key="submitBtn">Подтвердить</button>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="attendance" value="yes" checked>
+                            <span class="custom-radio"></span>
+                            <span class="radio-text">Әрине, келемін</span>
+                        </label>
+        
+                        <label class="radio-item">
+                            <input type="radio" name="attendance" value="couple">
+                            <span class="custom-radio"></span>
+                            <span class="radio-text">Жұбайыммен келемін</span>
+                        </label>
+        
+                        <label class="radio-item">
+                            <input type="radio" name="attendance" value="no">
+                            <span class="custom-radio"></span>
+                            <span class="radio-text">Өкінішке орай, келе алмаймын</span>
+                        </label>
+                    </div>
+        
+                    <button type="submit" class="submit-button">ЖІБЕРУ</button>
                 </form>
             </div>
         </section>
-
         
 
         <section class="location-section reveal">
@@ -228,6 +252,10 @@
                 </a>
             </div>
         </section>
+
+        <div class="reveal">
+            <img src="./assets/img/flowers.png" rotate="180deg" width="100%" alt="">
+        </div>
 
         <footer class="wedding-footer">
             <div class="footer-divider"></div>
@@ -264,8 +292,6 @@
 
     updateGuestInputs();
 }
-
-// при загрузке страницы
 document.addEventListener('DOMContentLoaded', applyLanguage);
     </script>
 </body>
