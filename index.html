@@ -34,8 +34,6 @@
 </head>
 <body>
 
-    <!-- <button class="lang-switch-btn" id="lang-toggle">KZ / RU</button> -->
-
     <div class="container">
         <section class="hero">
             <img src="./assets/img/hero.png" alt="Hero" class="hero-photo">
@@ -428,8 +426,7 @@
             },
         });
     </script>
-
-    <script>
+<script>
         function applyLanguage() {
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
@@ -440,9 +437,8 @@
 
     updateGuestInputs();
 }
-
-// при загрузке страницы
 document.addEventListener('DOMContentLoaded', applyLanguage);
-    </script>
+    
+</script>
 </body>
 </html>
