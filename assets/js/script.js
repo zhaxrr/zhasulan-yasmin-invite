@@ -272,3 +272,4 @@ window.addEventListener("scroll", function() {
         langBtn.style.opacity = "1";
     }
 });
+
