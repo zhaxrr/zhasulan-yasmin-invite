@@ -1,8 +1,6 @@
-// === НАСТРОЙКИ TELEGRAM ===
 const TELEGRAM_TOKEN = '8637725900:AAHlW9VsiGZnVfQqtUhV1iAyKUCdvKI34zQ';
 const TELEGRAM_CHAT_ID = '409251921';
 
-// === ОБЪЕКТ ПЕРЕВОДОВ ===
 const translations = {
     ru: {
         heroSubtitle: "Приглашение",
@@ -46,87 +44,58 @@ const translations = {
         heroSubtitle: "Шақыру",
         timerTitle: "Тойға дейінгі уақыт",
         days: "Күн", hours: "Сағат", minutes: "Минут", seconds: "Секунд",
-        
         photo: "Сурет",
-        
         storyTitle: "Біздің хикаямыз",
         storyText: "Барлығы кездейсоқ кездесуден басталып, өмірімізді мәңгілікке өзгерткен ерекше сәтке айналды.",
-        
         celebrationTitle: "Салтанатты кеш",
         celebrationText: "Сіздер үшін жайлы әрі шынайы әсерлерге толы ерекше кеш дайындадық.",
         celebrationTime: "Салтанатты кеш сағат 17:00-де басталады.",
-        
         when: "Қашан", where: "Қайда",
-        
         guestGathering: "17:00 — Қонақтарды қарсы алу",
-        
         regTitle: "Тіркелу",
         regSub: "Қатысуыңызды растауларыңызды өтінеміз.",
-        
         labelCount: "Қанша адам болып келесіздер?",
         opt1: "Өзім келемін",
         opt2: "Екеуіміз келеміз",
-        
         submitBtn: "Растау",
-        
         guestNamePlaceholder: "Қонақтың аты-жөні",
-        
         alertSuccess: "Қатысуыңыз сәтті расталды!",
         alertError: "Жіберу кезінде қате орын алды. Қайтадан көріңіз.",
-        
         labelPhone: "Байланыс нөмірі",
         phonePlaceholder: "+7 (___) ___-__-__",
-        
         kidTitle: "Өте маңызды",
         kidText: "Құрметті қонақтар! Мейрамхананың талаптарына сәйкес кеш бағдарламасы ересектерге арналған. Осыған орай тойға баласыз келулеріңізді сұраймыз. Түсіністік танытқандарыңыз үшін алғыс білдіреміз!",
-        
         august: "Тамыз",
-        
         joinGroup: "Топқа қосылу",
-        
-        groupTitle: "Тойдың видео және фотосуреттер тобы",
-        groupInfo: "Тойдың естелік сәттерімен осы TELEGRAM топта бөлісулеріңізді сұраймыз. Көрсеткен қолдауларыңызға алдын ала рақмет!",
-        
+        groupTitle: "Тойдың видео және фотосуреттер группасы",
+        groupInfo: "Тойдың естелік сәттерімен осы Telegram группасында бөлісулеріңізді сұраймыз. Көрсеткен қолдауларыңызға алдын ала рақмет!",
         geoTitle: " Мекенжайы",
         geoInfo: "Ақтөбе қ., Бөкенбай батыр көшесі, 40г, \"Elegant Hall\" банкет залы",
         geoBtn: "2ГИС-тен қарау",
-        
-        groupcheerTitle: "Видео құттықтауларға арналған топ",
-        groupcheerInfo: "Осы TELEGRAM топта өз видео-тілектеріңізді бөлісулеріңізді сұраймыз. Сіздердің ақ ниетті лебіздеріңізді көру біз үшін үлкен қуаныш!",
-        
+        groupcheerTitle: "Видео құттықтауларға арналған группа",
+        groupcheerInfo: "Осы Telegram группада өз видео-тілектеріңізді бөлісулеріңізді сұраймыз. Сіздердің ақ ниетті лебіздеріңізді көру біз үшін үлкен қуаныш!",
         hostsSubtitle: "Той иелері",
-        
         restaurantname: "\"Elegant Hall\" банкет залы",
         restaurantaddress: "Ақтөбе қ., Бөкенбай батыр көшесі, 40г",
-        
         locationTitle: "Өтетін орны",
     }
 };
 
 let currentLang = 'kz';
 
-// Функция смены языка
 function switchLanguage() {
     currentLang = currentLang === 'ru' ? 'kz' : 'ru';
-    
-    // Обновляем все элементы с data-key
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[currentLang][key]) {
             el.innerText = translations[currentLang][key];
         }
     });
-
-    // Обновляем плейсхолдеры в форме
     updateGuestInputs();
 }
 
-// Привязка кнопки
 document.getElementById('lang-toggle').addEventListener('click', switchLanguage);
 
-// --- ОСТАЛЬНАЯ ЛОГИКА (Reveal, Timer, Player, TG) ---
-
-// Анимация появления
 function reveal() {
     document.querySelectorAll(".reveal").forEach(el => {
         let windowHeight = window.innerHeight;
@@ -145,7 +114,6 @@ function revealmarquee() {
 }
 window.addEventListener("scroll", revealmarquee);
 
-// Таймер
 const countdownDate = new Date("Aug 22, 2026 00:00:00").getTime();
 setInterval(() => {
     const now = new Date().getTime();
@@ -156,33 +124,11 @@ setInterval(() => {
     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
 }, 1000);
 
-// Динамические поля имен
-const guestCountSelect = document.getElementById('guest-count');
-const guestNamesContainer = document.getElementById('guest-names-container');
-
-function updateGuestInputs() {
-    const count = parseInt(guestCountSelect.value);
-    guestNamesContainer.innerHTML = '';
-    for (let i = 1; i <= count; i++) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'guest-name';
-        input.placeholder = `${translations[currentLang].guestNamePlaceholder}`;
-        input.required = true;
-        guestNamesContainer.appendChild(input);
-    }
-}
-guestCountSelect.addEventListener('change', updateGuestInputs);
-updateGuestInputs(); // Инициализация первого поля
-
-// Плеер
 const audio = document.getElementById('wedding-music');
 const playBtn = document.getElementById('play-pause');
 
-// Функция для переключения состояния
 function toggleMusic() {
     if (audio.paused) {
-        // Пытаемся воспроизвести
         audio.play().then(() => {
             playBtn.textContent = '||';
             playBtn.classList.add('playing');
@@ -199,126 +145,63 @@ function toggleMusic() {
 
 playBtn.addEventListener('click', toggleMusic);
 
-// Обработка окончания трека (чтобы кнопка сбросилась)
 audio.onended = () => {
     playBtn.textContent = '▶';
     playBtn.classList.remove('playing');
 };
 
-// Отправка в TG
-document.getElementById('tg-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const phone = document.getElementById('guest-phone').value;
+const weddingForm = document.getElementById('wedding-form');
 
-    // Проверка: номер должен быть от 10 до 11 цифр
-    if (phone.length < 10) {
+if (weddingForm) {
+    weddingForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const errorMsg = currentLang === 'ru' ? 
-            "Пожалуйста, введите корректный номер телефона" : 
-            "Өтінемін, дұрыс телефон нөмірін енгізіңіз";
-        alert(errorMsg);
-        return;
-    }
-    const names = Array.from(document.querySelectorAll('.guest-name'))
-        .map((el, i) => `${i+1}. ${el.value}`).join('\n');
-    
-    // Формируем красивое сообщение для Telegram
-    const message = `
+        
+        const guestName = document.getElementById('guest-name').value;
+        const attendanceElement = document.querySelector('input[name="attendance"]:checked');
+        const attendanceValue = attendanceElement ? attendanceElement.value : 'Не выбрано';
+        
+        const statusMap = {
+            'yes': '✅ Приду один/одна',
+            'couple': '👩‍❤️‍👨 Приду с парой',
+            'no': '❌ Не смогу прийти'
+        };
+
+        const statusText = statusMap[attendanceValue] || attendanceValue;
+
+        const message = `
 🔔 *Новая регистрация!*
 
-📱 *Телефон:* ${phone}
-👥 *Гости:*
-${names}
+👤 *Имя:* ${guestName}
+📝 *Статус:* ${statusText}
 
 📅 Дата: ${new Date().toLocaleString()}
-    `;
-    
-    const btn = document.getElementById('submit-btn');
-    btn.disabled = true;
+        `;
 
-    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-            chat_id: TELEGRAM_CHAT_ID, 
-            text: message, 
-            parse_mode: 'Markdown' 
+        const submitBtn = this.querySelector('.submit-button');
+        submitBtn.disabled = true;
+        submitBtn.innerText = '...';
+
+        fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                chat_id: TELEGRAM_CHAT_ID, 
+                text: message, 
+                parse_mode: 'Markdown' 
+            })
         })
-    })
-    .then(res => {
-        if(res.ok) { 
-            alert(translations[currentLang].alertSuccess); 
-            this.reset(); 
-            updateGuestInputs(); 
-        } else { 
-            alert(translations[currentLang].alertError); 
-        }
-    })
-    .finally(() => btn.disabled = false);
-
-
-
-    const guestCountSelect = document.getElementById('guest-count');
-const namesContainer = document.getElementById('guest-names-container');
-
-function updateGuestInputs() {
-    const count = parseInt(guestCountSelect.value);
-    namesContainer.innerHTML = ''; // Очищаем
-
-    for (let i = 1; i <= count; i++) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'guest-name-input'; // Добавьте стиль в CSS аналогично select
-        input.placeholder = count === 1 ? 'Ваше имя и фамилия' : `Имя гостя №${i}`;
-        input.required = true;
-        input.style.marginBottom = '15px';
-        input.style.width = '100%';
-        input.style.padding = '12px 15px';
-        input.style.border = '1px solid #d4af37';
-        input.style.borderRadius = '8px';
-        
-        namesContainer.appendChild(input);
-    }
-}
-
-// Запускаем при изменении и при загрузке
-guestCountSelect.addEventListener('change', updateGuestInputs);
-updateGuestInputs();
-});
-
-// Валидация телефона (только цифры, максимум 11 символов для РФ/КЗ)
-
-const phoneInput = document.getElementById('guest-phone');
-
-phoneInput.addEventListener('input', function (e) {
-    let matrix = "+7 (___) ___-__-__",
-        i = 0,
-        def = matrix.replace(/\D/g, ""),
-        val = this.value.replace(/\D/g, "");
-
-    // Если пользователь пытается стереть "7", не даем
-    if (def.length >= val.length) val = def;
-
-    this.value = matrix.replace(/./g, function (a) {
-        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
+        .then(res => {
+            if(res.ok) { 
+                alert(translations[currentLang].alertSuccess); 
+                this.reset(); 
+            } else { 
+                alert(translations[currentLang].alertError); 
+            }
+        })
+        .catch(() => alert(translations[currentLang].alertError))
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'ЖІБЕРУ';
+        });
     });
-});
-
-// Дополнительно: чтобы при фокусе сразу появлялось "+7 "
-phoneInput.addEventListener('focus', function() {
-    if (this.value.length < 4) {
-        this.value = "+7 (";
-    }
-});
-
-// Делаем кнопку смены языка полупрозрачной при прокрутке
-
-window.addEventListener("scroll", function() {
-    const langBtn = document.getElementById('lang-toggle');
-    if (window.scrollY > 100) {
-        langBtn.style.opacity = "0.5"; // Делаем полупрозрачной
-    } else {
-        langBtn.style.opacity = "1";
-    }
-});
+}
