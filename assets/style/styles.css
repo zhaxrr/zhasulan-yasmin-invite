@@ -1,8 +1,7 @@
-/* 1. ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И ОСНОВНЫЕ СТИЛИ */
 :root {
     --bg-color: #ffffff;
     --section-bg: #ffffff;
-    --accent: #B59E7D;
+    --accent: black;
     --text: #333333;
     --gold: #c5a059;
     --hero-placeholder-bg: #f4f1ea;
@@ -11,22 +10,27 @@
 
 @font-face {
 	font-family: 'KZ Balmoral Regular';
-	src: url('../fonts/kz_balmoral_regular.eot'); /* IE 9 Compatibility Mode */
-	src: url('../fonts/kz_balmoral_regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
-		url('../fonts/kz_balmoral_regular.woff2') format('woff2'), /* Super Modern Browsers */
-		url('../fonts/kz_balmoral_regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
-		url('../fonts/kz_balmoral_regular.ttf') format('truetype'), /* Safari, Android, iOS */
-		url('../fonts/kz_balmoral_regular.svg#kz_balmoral_regular') format('svg'); /* Chrome < 4, Legacy iOS */
+	src: url('../fonts/kz_balmoral_regular.eot');
+	src: url('../fonts/kz_balmoral_regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/kz_balmoral_regular.woff2') format('woff2'),
+		url('../fonts/kz_balmoral_regular.woff') format('woff'),
+		url('../fonts/kz_balmoral_regular.ttf') format('truetype'),
+		url('../fonts/kz_balmoral_regular.svg#kz_balmoral_regular') format('svg');
 }
 
 @font-face {
 	font-family: 'Anna-Faustina script';
-	src: url('../fonts/anna-faustina_script.eot'); /* IE 9 Compatibility Mode */
-	src: url('../fonts/anna-faustina_script.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
-		url('../fonts/anna-faustina_script.woff2') format('woff2'), /* Super Modern Browsers */
-		url('../fonts/anna-faustina_script.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
-		url('../fonts/anna-faustina_script.ttf') format('truetype'), /* Safari, Android, iOS */
-		url('../fonts/anna-faustina_script.svg#anna-faustina_script') format('svg'); /* Chrome < 4, Legacy iOS */
+	src: url('../fonts/anna-faustina_script.eot');
+	src: url('../fonts/anna-faustina_script.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/anna-faustina_script.woff2') format('woff2'),
+		url('../fonts/anna-faustina_script.woff') format('woff'),
+		url('../fonts/anna-faustina_script.ttf') format('truetype'),
+		url('../fonts/anna-faustina_script.svg#anna-faustina_script') format('svg');
+}
+
+@font-face {
+    font-family: 'ventura';
+    src: url('../fonts/Ventura\ Script.ttf') format(truetype);
 }
 
 @font-face {
@@ -37,34 +41,34 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    max-width: 430px; /* Ширина стандартного смартфона */
+    max-width: 100%;
     margin: 0 auto;
     overflow-x: hidden;
     line-height: 1.6;
     color: var(--text);
-    background: var(--bg-color); /* Фон за пределами сайта (серый или бежевый) */
+    background: var(--bg-color);
 }
 
 html {
-    background-color: #f0f0f0; /* Чтобы при скролле не было белых дыр */
+    background-color: #f0f0f0;
 }
 
 .container {
-    max-width: 400px; /* Типичная ширина для мобильного приглашения */
-    margin: 0 auto;   /* Центрируем сайт на больших экранах */
-    width: 100%;      /* На маленьких экранах занимает всю ширину */
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
     min-height: 100vh;
-    background-color: #fff; /* Чтобы фон контента отличался от фона окна */
-    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Легкая тень по бокам для красоты */
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
     position: relative;
-    overflow-x: hidden; /* Критично: обрезает всё, что вылетает за края */
+    overflow-x: hidden;
 }
+
 h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
 }
 
-/* 2. КНОПКА СМЕНЫ ЯЗЫКА */
 .lang-switch-btn {
     position: fixed;
     top: 75px; 
@@ -82,9 +86,8 @@ h1, h2, h3 {
 
 .lang-switch-btn:hover { background-color: var(--bg-color); }
 
-/* 3. HERO SECTION (Обновлено: текст внизу) */
 .hero {
-    height: 70vh; /* Задаем высоту (90% экрана) */
+    height: 70vh;
     position: relative;
     width: 100%;
     display: flex;
@@ -100,42 +103,42 @@ h1, h2, h3 {
     }
 }
 
-
 .hero-photo {
     height: 100%;
     width: 100%;
-    object-fit: contain; /* Теперь фото будет вписываться целиком */
+    object-fit: contain;
     object-position: center top;
 }
+
 .hero-content {
     position: absolute;
     bottom: 80px;
     width: 100%;
-    max-width: 100vw; /* Добавлено: ограничение по ширине вьюпорта */
-    overflow: hidden; /* Добавлено: чтобы буквы не растягивали экран */
+    max-width: 100vw;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 10;
 }
+
 .hero-content h1 {
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-size: 2.7rem;
     line-height: 1.1;
-    color: #ffffff;
+    color: black;
     font-family: 'Asylbekm13vivante.Kz';
     text-transform: none;
-    font-weight: 200;
-	text-shadow: rgba(0,0,0,1) 0px 0px 3px;
+    font-weight: 300;
 }
 
 .name-top {
-    transform: translateX(-15%);
+    transform: translateX(-30%);
 }
 
 .name-bottom {
-    transform: translateX(25%);
+    transform: translateX(70%);
+    margin-top: -30px;
 }
-
 
 @media (min-width: 768px) {
     .name-top{
@@ -154,8 +157,6 @@ h1, h2, h3 {
     color: black;
     opacity: 0.7;
     margin: -10px 0;
-	text-shadow: rgba(255,255,255,1) 0px 0px 3px;
-	
 }
 
 .hero::after {
@@ -170,17 +171,16 @@ h1, h2, h3 {
 }
 
 .hero-subtitle {
-    font-family: 'Cormorant Garamond', serif; /* Или ваш основной шрифт */
+    font-family: ventura, Arial, sans-serif;
     font-size: 1.4rem;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 5px;
-    margin-top: 15px;
-    color: #8a7b6a;
-    font-weight: 400;
+    margin-top: 50px;
+    color: #383838;
+    font-weight: 600;
     opacity: 1;
 }
 
-/* На мобильных устройствах можно чуть уменьшить */
 @media (max-width: 480px) {
     .hero-subtitle {
         letter-spacing: 2px;
@@ -207,9 +207,7 @@ h1, h2, h3 {
     }
 }
 
-/* 4. МУЗЫКАЛЬНЫЙ ПЛЕЕР (Sticky) */
 .music-player {
-    /* position: sticky; */
     top: 0;
     z-index: 1000;
     padding: 0px 10px;
@@ -229,14 +227,15 @@ h1, h2, h3 {
 }
 
 .track-info {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--accent);
 }
 
 .player-btn {
-    background: var(--accent);
+    background: #253305;
     border: none;
     color: white;
     width: 34px;
@@ -254,7 +253,6 @@ h1, h2, h3 {
     padding: 0 !important;
 }
 
-/* 5. КАЛЕНДАРЬ (Новый блок) */
 .calendar-section {
     padding: 40px 20px;
     background-color: #ffffff;
@@ -287,7 +285,6 @@ h1, h2, h3 {
 
 .day-name { font-weight: bold; color: var(--accent); }
 
-/* Контейнер для даты и сердца */
 .date-with-heart {
     position: relative;
     display: flex;
@@ -302,7 +299,7 @@ h1, h2, h3 {
     z-index: 2;
     font-weight: bold;
     font-size: 1rem;
-    color: #2c2c2c; /* Цвет самой цифры */
+    color: #2c2c2c;
     margin-top: -2px;
 }
 
@@ -311,13 +308,12 @@ h1, h2, h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 38px; /* Размер сердца */
+    width: 38px;
     height: 38px;
     z-index: 1;
     animation: heartPulse 1.8s ease-in-out infinite;
 }
 
-/* Анимация пульсации только для контура сердца */
 @keyframes heartPulse {
     0% {
         transform: translate(-50%, -50%) scale(1);
@@ -325,7 +321,7 @@ h1, h2, h3 {
     }
     50% {
         transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.7; /* Легкое затухание при расширении */
+        opacity: 0.7;
     }
     100% {
         transform: translate(-50%, -50%) scale(1);
@@ -333,7 +329,6 @@ h1, h2, h3 {
     }
 }
 
-/* 6. STORY BLOCKS */
 .story-block {
     display: flex;
     align-items: center;
@@ -363,9 +358,9 @@ h1, h2, h3 {
 }
 
 .story-text { flex: 1; padding: 20px; text-align: center; }
+
 .story-text h2 { font-size: 2.2rem; margin-bottom: 15px; }
 
-/* 7. DETAILS & INFO */
 .details { padding: 60px 20px; text-align: center; }
 
 .info-grid {
@@ -383,7 +378,6 @@ h1, h2, h3 {
     font-weight: 400;
 }
 
-/* 8. РЕГИСТРАЦИЯ (ФОРМА) */
 .registration {
     padding: 60px 20px;
     background-color: var(--section-bg);
@@ -402,37 +396,36 @@ h1, h2, h3 {
     width: 100%;
     padding: 12px 15px;
     font-size: 1rem;
-    font-family: inherit; /* Берет ваш основной шрифт */
+    font-family: inherit;
     color: #4a4a4a;
     background-color: #fff;
-    border: 1px solid #d4af37; /* Золотистая рамка */
+    border: 1px solid #d4af37;
     border-radius: 8px;
-    appearance: none; /* Убирает стандартную стрелку браузера */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 15px center; /* Своя стрелочка справа */
+    background-position: right 15px center;
     transition: all 0.3s ease;
     outline: none;
     margin-bottom: 20px;
 }
 
-/* Эффект при клике */
 #guest-count:focus {
     border-color: #bfa02a;
     box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
 }
 
-/* Стили для меток (labels) */
 .input-label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #8a7b6a;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 600 !important;
 }
 
 .form-container h2 {
@@ -475,7 +468,7 @@ input:focus { outline: 1px solid var(--accent); }
 
 .btn-primary {
     padding: 16px 32px;
-    background-color: var(--accent);
+    background-color: #253305;
     color: white;
     border: none;
     text-transform: uppercase;
@@ -488,25 +481,30 @@ input:focus { outline: 1px solid var(--accent); }
     margin: 0 auto;
 }
 
-/* 9. ТАЙМЕР (Перенесен в конец) */
 .timer-with-bg {
     height: 70vh;
+    width: 100%;
     position: relative;
     padding: 100px 20px;
-    background-image: url('../img/hero2.png'); /* Укажи путь к фото */
+    background-image: url('../img/hero2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed; /* Эффект параллакса */
+    background-attachment: fixed;
     overflow: hidden;
-    color: #ffffff; /* Делаем текст белым, так как фон будет темным */
+    color: #ffffff;
 }
 
-/* Слой затемнения, чтобы цифры читались */
+.timer-section{
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 .timer-overlay {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50;
     width: 100%;
     height: 100%;
     background: linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
@@ -515,19 +513,16 @@ input:focus { outline: 1px solid var(--accent); }
 
 .timer-content {
     position: relative;
-    bottom: -40vh; /* Поднимаем контент выше, чтобы он был над затемнением */
-    z-index: 2; /* Выводит текст над затемнением */
+    bottom: -40vh;
+    z-index: 2;
 }
 
 .timer-title {
-    color: black !important; /* Оставляем заголовок золотым */
+    font-family: 'Montserrat', sans-serif !important;
+    color: black !important;
     margin-bottom: 40px;
     text-align: center;
-    font-size: 3rem;
-    font-weight: 600;
-}
-
-.timer-title > h2{
+    font-size: 1.3rem !important;
     font-weight: 600;
 }
 
@@ -536,17 +531,17 @@ input:focus { outline: 1px solid var(--accent); }
     color: #000000;
     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     text-transform: capitalize;
+    font-weight: 600;
 }
 
 .timer-item p {
-    color: rgba(0, 0, 0, 0.8) !important; /* Подписи чуть прозрачнее */
+    color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .timer-divider {
     color: silver;
 }
 
-/* Отключаем параллакс для мобилок, чтобы не тормозило */
 @media (max-width: 768px) {
     .timer-with-bg {
         background-attachment: scroll;
@@ -554,18 +549,16 @@ input:focus { outline: 1px solid var(--accent); }
     }
 }
 
-/* 1. Обеспечиваем горизонтальное расположение */
 .timer-display {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Расстояние между элементами */
+    gap: 10px;
     position: relative;
     z-index: 2;
-    bottom: 10px; /* Немного поднимаем таймер над центром для лучшего визуального баланса */
+    bottom: 10px;
 }
 
-/* 2. Настройка самих элементов таймера */
 .timer-item {
     flex: 1;
     text-align: center;
@@ -574,7 +567,7 @@ input:focus { outline: 1px solid var(--accent); }
 .timer-item span {
     display: block;
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 8vw, 2.8rem); /* Адаптивный размер цифр */
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
     line-height: 1;
 }
 
@@ -585,15 +578,13 @@ input:focus { outline: 1px solid var(--accent); }
     margin-top: 5px;
 }
 
-/* 3. Центрируем разделители */
 .timer-divider {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.8rem;
     color: var(--gold);
-    padding-bottom: 20px; /* Визуальное выравнивание с цифрами */
+    padding-bottom: 20px;
 }
 
-/* 4. Адаптив для маленьких экранов */
 @media (max-width: 480px) {
     .timer-display {
         gap: 5px;
@@ -606,7 +597,6 @@ input:focus { outline: 1px solid var(--accent); }
     }
 }
 
-/* 10. АДАПТИВНОСТЬ И ЭФФЕКТЫ */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -634,9 +624,6 @@ input:focus { outline: 1px solid var(--accent); }
 
 footer { padding: 50px 20px; text-align: center; background: var(--section-bg); font-size: 0.8rem; }
 
-
-
-/* Базовые настройки шрифтов */
 body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -644,15 +631,13 @@ body {
     color: var(--text);
 }
 
-/* Заголовки и Имена */
 h1, h2, .name-top, .name-bottom {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 0.2em; /* Большой межбуквенный интервал для "люкса" */
+    letter-spacing: 0.2em;
 }
 
-/* Текст в блоках истории и инфо */
 .story-text h2 {
     font-size: 2rem;
     margin-bottom: 15px;
@@ -667,7 +652,6 @@ h1, h2, .name-top, .name-bottom {
     color: #555;
 }
 
-/* Кнопки и подписи (акцентный Montserrat) */
 .btn-primary, .input-label, .timer-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -700,19 +684,20 @@ h1, h2, .name-top, .name-bottom {
     width: 50px;
     height: 50px;
     margin: 0 auto 20px;
-    color: var(--accent); /* Цвет шалфея */
+    color: var(--accent);
 }
 
 .location-title {
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: var(--text);
-    font-weight: 600;
+    font-weight: 700 !important;
 }
 
 .location-address {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    font-family: 'ventura', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
     color: #000000;
     margin-bottom: 25px;
     line-height: 1.5;
@@ -721,7 +706,7 @@ h1, h2, .name-top, .name-bottom {
 .btn-2gis {
     display: inline-block;
     padding: 14px 28px;
-    background-color: var(--accent);
+    background-color: #253305;
     color: white;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -732,35 +717,48 @@ h1, h2, .name-top, .name-bottom {
     transition: all 0.3s ease;
 }
 
+.btn-2giss {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    animation: jump 3s infinite;
+}
+
 .btn-2gis:hover {
-    background-color: var(--photo-placeholder-bg);
+    background-color: #4a650c;
     box-shadow: 0 4px 12px rgba(138, 154, 91, 0.3);
 }
 
-/* kid block */
+@keyframes jump {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
 .kid-text { flex: 1; padding: 20px; text-align: center; }
-.kid-text h2 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 600 ; }
+
+.kid-text h2 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; }
+
 .kid-text > p {
     color: black;
     font-weight: 600;
     text-transform: uppercase;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-/* oyu marquee */
-
 .oyu-marquee {
-    overflow: hidden; /* Скрываем то, что выходит за границы */
+    overflow: hidden;
     width: 100%;
-    background: transparent; /* Можно задать фон */
+    background: transparent;
     margin-top: 2.5vh;
 }
 
 .oyu-marquee-last{
-    overflow: hidden; /* Скрываем то, что выходит за границы */
+    overflow: hidden;
     width: 100%;
-    background: transparent; /* Можно задать фон */
+    background: transparent;
     margin-top: -3vh;
 }
 
@@ -772,11 +770,11 @@ h1, h2, .name-top, .name-bottom {
 .marquee-content {
     display: flex;
     white-space: nowrap;
-    animation: scroll-left 20s linear infinite; /* 20s - скорость (чем меньше, тем быстрее) */
+    animation: scroll-left 20s linear infinite;
 }
 
 .marquee-content img {
-    height: 30px; /* Ваша высота */
+    height: 30px;
     display: inline-block;
 }
 
@@ -785,15 +783,14 @@ h1, h2, .name-top, .name-bottom {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* Сдвигаем ровно на половину (длину одного набора) */
+        transform: translateX(-50%);
     }
 }
-
 
 .hosts-section {
     padding: 60px 20px 40px 20px;
     text-align: center;
-    background-color: #fff; /* Или нежно-бежевый #f9f7f2 */
+    background-color: #fff;
 }
 
 .hosts-container {
@@ -804,21 +801,23 @@ h1, h2, .name-top, .name-bottom {
 }
 
 .hosts-subtitle {
-    font-family: 'KZ Balmoral Regular', cursive;
+    font-family: ventura, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 31px;
     letter-spacing: 1.5px;
-    font-size: 2.2rem;
-    color: #8a7b6a;
+    color: #000000;
 }
 
 .hosts-subtitle:last-of-type{
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1rem;
     text-transform: uppercase;
     font-family: 'Cormorant Garamond', serif;
 }
 
 .hosts-names {
-    font-family: 'Cormorant Garamond', serif; /* Очень изящный шрифт */
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 400;
     color: #2c2c2c;
@@ -827,8 +826,8 @@ h1, h2, .name-top, .name-bottom {
 }
 
 .ampersandhost {
-    font-family: 'Great Vibes', cursive; /* Рукописный шрифт для символа & */
-    color: #d4af37; /* Цвет золота */
+    font-family: 'Great Vibes', cursive;
+    color: #d4af37;
     font-size: 2rem;
     margin: 0 10px;
     vertical-align: middle;
@@ -845,7 +844,6 @@ h1, h2, .name-top, .name-bottom {
     margin-right: auto;
 }
 
-/* Маленькая точка или ромб на линии */
 .divider::after {
     content: '◆';
     position: absolute;
@@ -864,7 +862,8 @@ h1, h2, .name-top, .name-bottom {
 }
 
 .location-info h2 {
-    font-size: 2.2rem; margin-bottom: 15px;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
 }
 
 .restaurant-name {
@@ -878,10 +877,9 @@ h1, h2, .name-top, .name-bottom {
     margin-bottom: 25px;
 }
 
-/* Стили карусели */
 .restaurant-slider {
     width: 100%;
-    max-width: 500px; /* Ограничение ширины для десктопа */
+    max-width: 500px;
     height: 300px;
     border-radius: 15px;
     overflow: hidden;
@@ -891,12 +889,10 @@ h1, h2, .name-top, .name-bottom {
 .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Чтобы фото не искажалось */
+    object-fit: cover;
     overflow: hidden;
 }
 
-
-/* Цвет точек пагинации под золото */
 .swiper-pagination-bullet-active {
     background: #d4af37 !important;
 }
@@ -909,7 +905,7 @@ h1, h2, .name-top, .name-bottom {
 .wedding-footer {
     padding: 80px 20px;
     text-align: center;
-    background: linear-gradient(to top, #fcfaf7, #ffffff); /* Мягкий переход в цвет фона */
+    background: linear-gradient(to top, #fcfaf7, #ffffff);
 }
 
 .footer-divider {
@@ -920,9 +916,9 @@ h1, h2, .name-top, .name-bottom {
 }
 
 .footer-invitation {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: ventura, Arial, sans-serif;
     font-size: 2.2rem;
-    color: #c6b29b;
+    color: #000000;
     font-style: italic;
     margin-bottom: 25px;
     letter-spacing: 0.5px;
@@ -940,7 +936,7 @@ h1, h2, .name-top, .name-bottom {
 .footer-date {
     font-size: 0.7rem;
     color: #d4af37;
-    letter-spacing: 5px; /* Красивый разлет цифр */
+    letter-spacing: 5px;
     text-transform: uppercase;
 }
 
@@ -963,6 +959,7 @@ h1, h2, .name-top, .name-bottom {
     margin-bottom: 50px;
     letter-spacing: 4px;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 .lineage-unit {
@@ -974,8 +971,9 @@ h1, h2, .name-top, .name-bottom {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: #6d6d6d;
+    color: #000000;
     margin-bottom: 12px;
+    font-weight: 600;
 }
 
 .lineage-names {
@@ -985,10 +983,9 @@ h1, h2, .name-top, .name-bottom {
     font-weight: 400;
 }
 
-/* Основной акцент на Бекбол & Жанна */
 .hosts-primary {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.6rem;
+    font-family: ventura, Arial, sans-serif;
+    font-size: 2.2rem;
     color: #1a1a1a;
     font-weight: 500;
     margin: 0;
@@ -1001,7 +998,6 @@ h1, h2, .name-top, .name-bottom {
     font-style: italic;
 }
 
-/* Изящная линия-разделитель */
 .ceremonial-break {
     margin: 35px auto;
     position: relative;
@@ -1029,4 +1025,113 @@ h1, h2, .name-top, .name-bottom {
 
 .locationcomp > .location-title{
     font-size: 1.2rem;
+}
+
+.registration-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-decor {
+    margin-bottom: 20px;
+}
+
+.form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: #2c2c2c;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.form-instruction {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    font-weight: 600;
+}
+
+#guest-name {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1.5px solid #4a5d23;
+    border-radius: 30px;
+    background: transparent;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    outline: none;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#guest-name::placeholder {
+    color: #b0b0b0;
+}
+
+.radio-group {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #2c2c2c;
+    margin-top: 5vh;
+}
+
+.radio-item input {
+    display: none;
+}
+
+.custom-radio {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #2c2c2c;
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.radio-item input:checked + .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: #2c2c2c;
+    border-radius: 50%;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 18px;
+    background-color: #253305;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.submit-button:hover {
+    opacity: 0.9;
 }
