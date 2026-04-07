@@ -171,7 +171,7 @@ if (weddingForm) {
         const statusText = statusMap[attendanceValue] || attendanceValue;
 
         const message = `
-🔔 *Новая регистрация!*
+🔔 *Новая регистрация на той Жасулан и Ясмин 22.08.2026!*
 
 👤 *Имя:* ${guestName}
 📝 *Статус:* ${statusText}
