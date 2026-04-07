@@ -682,6 +682,7 @@ h1, h2, .name-top, .name-bottom {
 
 .location-container > p, h2 {
 	font-family: ventura, Arial, sans-serif;
+	text-transform: none !important;
 }
 
 .location-icon {
