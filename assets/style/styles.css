@@ -1095,6 +1095,23 @@ h1, h2, .name-top, .name-bottom {
     color: #b0b0b0;
 }
 
+#guest-phone {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1.5px solid #4a5d23;
+    border-radius: 30px;
+    background: transparent;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    outline: none;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#guest-phone::placeholder {
+    color: #b0b0b0;
+}
+
 .radio-group {
     text-align: left;
     display: inline-block;
