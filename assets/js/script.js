@@ -153,12 +153,34 @@ audio.onended = () => {
 };
 
 const weddingForm = document.getElementById('wedding-form');
+const phoneInput = document.getElementById('guest-phone');
 
+// --- МАСКА ДЛЯ ТЕЛЕФОНА ---
+phoneInput.addEventListener('input', function (e) {
+    let matrix = "+7 (___) ___-__-__",
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = this.value.replace(/\D/g, "");
+
+    if (def.length >= val.length) val = def;
+
+    this.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
+    });
+});
+
+// Запрет на пустую строку или удаление +7
+phoneInput.addEventListener('blur', function() {
+    if (this.value.length === 2) this.value = "";
+});
+
+// --- ОБРАБОТКА ФОРМЫ ---
 if (weddingForm) {
     weddingForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const guestName = document.getElementById('guest-name').value;
+        const guestPhone = document.getElementById('guest-phone').value;
         const attendanceElement = document.querySelector('input[name="attendance"]:checked');
         const attendanceValue = attendanceElement ? attendanceElement.value : 'Не выбрано';
         
@@ -170,10 +192,12 @@ if (weddingForm) {
 
         const statusText = statusMap[attendanceValue] || attendanceValue;
 
+        // Сообщение для Telegram
         const message = `
 🔔 *Новая регистрация на той Жасулан и Ясмин 22.08.2026!*
 
 👤 *Имя:* ${guestName}
+📞 *Тел:* ${guestPhone}
 📝 *Статус:* ${statusText}
 
 📅 Дата: ${new Date().toLocaleString()}
@@ -181,6 +205,7 @@ if (weddingForm) {
 
         const submitBtn = this.querySelector('.submit-button');
         submitBtn.disabled = true;
+        const originalBtnText = submitBtn.innerText;
         submitBtn.innerText = '...';
 
         fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
@@ -194,16 +219,17 @@ if (weddingForm) {
         })
         .then(res => {
             if(res.ok) { 
-                alert(translations[currentLang].alertSuccess); 
+                // Если у вас есть объект translations, используйте его, иначе обычный alert:
+                alert('Мәлімет жіберілді! Рақмет!'); 
                 this.reset(); 
             } else { 
-                alert(translations[currentLang].alertError); 
+                alert('Қате кетті. Қайта көріңіз.'); 
             }
         })
-        .catch(() => alert(translations[currentLang].alertError))
+        .catch(() => alert('Байланыс қатесі. Интернетті тексеріңіз.'))
         .finally(() => {
             submitBtn.disabled = false;
-            submitBtn.innerText = 'ЖІБЕРУ';
+            submitBtn.innerText = originalBtnText;
         });
     });
 }
